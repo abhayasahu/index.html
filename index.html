@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiplication Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calculator-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      font-size: 16px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <h2>Bricks Estimator</h2>
+    <form id="calculator-form">
+      <label for="number1">Enter your wall length in feet:</label>
+      <input type="number" id="number1" required>
+      
+      <label for="number2">Enter your wall width in feet:</label>
+      <input type="number" id="number2" required>
+      
+      <button type="button" onclick="calculateMultiplication()">Calculate</button>
+      
+      <h3>Your wall in sqft: <span id="result">0 </span> SqFt</h3>
+      <h3>the total no of bricks: <span id="result1">0 </span> Nos</h3>
+    </form>
+  </div>
+
+  <script>
+    function calculateMultiplication() {
+      const num1 = parseFloat(document.getElementById("number1").value);
+      const num2 = parseFloat(document.getElementById("number2").value);
+      
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      const result = num1 * num2;
+      document.getElementById("result").textContent = result;
+
+      const result1 = num1 * num2 * 9;
+      document.getElementById("result1").textContent = result1;
+    }
+  </script>
+</body>
+</html>
